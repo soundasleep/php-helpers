@@ -1,0 +1,6 @@
+{
+  "name": "soundasleep/php-helpers",
+  "autoload": {
+    "files": ["functions.php"]
+  }
+}
