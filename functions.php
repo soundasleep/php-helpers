@@ -61,3 +61,13 @@ function is_valid_url($e) {
   return mb_strlen($e) <= 255 &&
     (mb_substr($e, 0, mb_strlen("http://")) == "http://" || mb_substr($e, 0, mb_strlen("https://")) == "https://");
 }
+
+/**
+ * Generate a random string in base16 characters of the given length.
+ * Tries to use cryptographically strong randomness.
+ */
+function random16($length) {
+  $bytes = openssl_random_pseudo_bytes($length / 2);
+  $hex = bin2hex($bytes);
+  return substr($hex, 0, $length);
+}
