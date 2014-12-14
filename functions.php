@@ -62,6 +62,11 @@ function is_valid_url($e) {
     (mb_substr($e, 0, mb_strlen("http://")) == "http://" || mb_substr($e, 0, mb_strlen("https://")) == "https://");
 }
 
+function user_ip() {
+  return $_SERVER['REMOTE_ADDR'];
+  // also see $_SERVER['HTTP_X_FORWARDED_FOR'] for (possibly spoofed) proxy address
+}
+
 /**
  * Generate a random string in base16 characters of the given length.
  * Tries to use cryptographically strong randomness.
